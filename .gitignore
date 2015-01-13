@@ -1,2 +1,5 @@
 .metadata
 RemoteSystemsTempFiles
+Arduino_Uno
+car/Release
+car/Debug

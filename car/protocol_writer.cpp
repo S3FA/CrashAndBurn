@@ -8,11 +8,13 @@ ProtocolWriter::ProtocolWriter() {
 ProtocolWriter::~ProtocolWriter() {
 }
 
-boolean ProtocolWriter::writeStatusToSerial(boolean isActivated) {
+boolean ProtocolWriter::writeStatusToSerial(CarId id, boolean isActive) {
   ProtocolWriter::writePacketStart();
   ProtocolWriter::writePacketType(Syntax::CAR_STATUS_MSG_CHAR);
   
-  Serial.print(isActivated ? 1 : 0);
+  ProtocolWriter::writeCarId(id);
+  ProtocolWriter::writeDelimiter();
+  ProtocolWriter::writeBoolean(isActive);
   // TODO: More stuff here
   
   ProtocolWriter::writePacketEnd();
@@ -43,6 +45,25 @@ boolean ProtocolWriter::writeCollisionEventToSerial(float accX, float accY, floa
   ProtocolWriter::writeDelimiter();
   Serial.print(accZ, Syntax::NUM_FLT_DECIMALS);
   
+  ProtocolWriter::writePacketEnd();
+  
+  return true;
+}
+
+boolean ProtocolWriter::writeFireShotEventToSerial(Syntax::FlameType fireType) {
+  ProtocolWriter::writePacketStart();
+  ProtocolWriter::writePacketType(Syntax::CAR_LOCAL_DEADMAN_EVENT_CHAR);
+  Serial.print(static_cast<int>(fireType));
+  ProtocolWriter::writePacketEnd();
+  
+  return true;
+}
+
+boolean ProtocolWriter::writeLocalDeadmanEventToSerial(boolean isFireOn) {
+  
+  ProtocolWriter::writePacketStart();
+  ProtocolWriter::writePacketType(Syntax::CAR_LOCAL_DEADMAN_EVENT_CHAR);
+  ProtocolWriter::writeBoolean(isFireOn);
   ProtocolWriter::writePacketEnd();
   
   return true;

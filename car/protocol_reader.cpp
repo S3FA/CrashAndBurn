@@ -84,6 +84,7 @@ void ProtocolReader::readFromSerial() {
     */
 }
 
+
 void ProtocolReader::readCarCollisionEventFromSerial(long startReadTimeInMillis) {
     long currTimeInMillis = startReadTimeInMillis;
     

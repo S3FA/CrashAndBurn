@@ -18,16 +18,22 @@ public:
     static const char PARAM_DELIM_CHAR = ',';
     
     // Event identifiers
-    static const char CAR_COLLISION_EVENT_CHAR    = 'C';
-    static const char CAR_TIPPING_OVER_EVENT_CHAR = 'T';
-    static const char CAR_STATUS_MSG_CHAR         = 'S';
+    static const char CAR_COLLISION_EVENT_CHAR     = 'C';
+    static const char CAR_TIPPING_OVER_EVENT_CHAR  = 'T';
+    static const char CAR_STATUS_MSG_CHAR          = 'S';
+    static const char CAR_LOCAL_DEADMAN_EVENT_CHAR = 'D';
     
     // Misc. specifiers
     static const int NUM_FLT_DECIMALS = 4;
     
     enum Team {
-      SparklePonyTeam,
-      DeathTeam
+      SparklePonyTeam = 0,
+      DeathTeam = 1
+    };
+    enum FlameType {
+      ShortBurst = 0,
+      MediumBurst = 1,
+      LongBurst = 2
     };
     
       

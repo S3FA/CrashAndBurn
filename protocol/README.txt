@@ -1,1 +1,0 @@
-Place C++ code for protocol stuff here, we’ll be able to share it across Arduino and Java (via JNI) projects.
