@@ -34,14 +34,22 @@ team: An enumeration describing the team of the car (relevant in teamplay matche
 Server to Car
 -------------
 * StatusQuery() - Used to ask a car to reply with its status
-* SetLEDColour(colour) - Tell a car to set all its LEDs to the specified colour.
+* SetLEDColourCmd(colour) - Tell a car to set all its LEDs to the specified colour.
 * SetIsActiveCmd(isActive) - Tell a car to activate or deactivate.
 * ShootFireCmd(location, fireType) - Tell a car to shoot fire.
 
 * CarCollisionInfo(rewardCarId, punishCarId, isFriendlyFire) - Inform cars of a collision between two cars, who instigated it and who didn’t and whether it was a “friendly” collision. NOTE: This might not be necessary if cars just passively receive instruction/commands from the server.
 
 
+How to use Protobuf
+-------------------
+Step 1: Create a .proto file defining your messages.
 
+Step 2: Build a .pb file
+user@host:~$ protoc -omessage.pb message.proto
 
+Step 3: Run the .pb file through the nanopb generator script
+user@host:~$ python nanopb/generator/nanopb_generator.py message.pb
 
+OR
 

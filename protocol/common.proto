@@ -1,0 +1,9 @@
+// common.proto
+
+enum FireType {
+     NO_FIRE      = 0;
+     SMALL_BURST  = 1;
+     MEDIUM_BURST = 2;
+     LARGE_BURST  = 3;
+}
+  

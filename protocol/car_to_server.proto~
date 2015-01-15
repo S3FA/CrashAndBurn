@@ -1,0 +1,47 @@
+// car_to_server.proto
+// Defines all messages that are sent from the Crash and Burn bumper
+// cars to the server.
+
+// NOTE: Never use doubles (avr can't deal with it and needs 
+// special code that I don't want to write! Floats only please.
+
+message CarMessage {
+   enum MessageType {
+   	COLLISION_EVENT     = 0;
+	FIRE_SHOT_EVENT     = 1;
+	TIPPING_OVER_EVENT  = 2;
+	LOCAL_DEADMAN_EVENT = 3;
+	CAR_STATUS_INFO     = 4;
+   }  
+   
+   required MessageType type = 1;
+   
+   // Collison Event -------------------
+   optional float accelX = 2 [default = 0];
+   optional float accelY = 3 [default = 0];
+   optional float accelZ = 4 [default = 0];
+
+   // Fire Shot Event ------------------
+   enum FireType {
+   	SMALL_BURST  = 0;
+	MEDIUM_BURST = 1;
+	LARGE_BURST  = 2;
+   }
+   optional FireType fireType = 5 [default = SMALL_BURST];
+
+   // Local Deadman Event --------------
+   optional bool isFireLive = 6 [default = false];
+   
+   // Car Status Info ------------------
+   enum TeamType {
+   	INVALID_TEAM = 0;
+   	SPARKLE_TEAM = 1;
+	DEATH_TEAM   = 2;
+   }
+   optional sint32 carId          = 7  [default = -1];
+   optional bool isActiveStatus   = 8  [default = false];
+   optional bool isFireLiveStatus = 9  [default = false];
+   optional TeamType teamStatus   = 10 [default = INVALID_TEAM];
+
+}
+

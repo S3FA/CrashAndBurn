@@ -26,4 +26,16 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 		<nature>it.baeyens.arduinonature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>nanopb</name>
+			<type>2</type>
+			<locationURI>carnanopb/nanopb</locationURI>
+		</link>
+		<link>
+			<name>protocol</name>
+			<type>2</type>
+			<locationURI>carprotocol/protocol</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

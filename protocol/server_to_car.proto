@@ -1,0 +1,33 @@
+import "common.proto";
+
+// server_to_car.proto
+// Defines all messages that are sent from the Crash and Burn server
+// to the bumper cars.
+
+// NOTE: Never use doubles (avr can't deal with it and needs 
+// special code that I don't want to write! Floats only please.
+
+message ServerMessage {
+     enum MessageType {
+     	  STATUS_QUERY       = 0;
+	  SET_LED_COLOUR_CMD = 1; 
+	  SET_IS_ACTIVE_CMD  = 2;
+	  SHOOT_FIRE_CMD     = 3;
+	  COLLISION_INFO     = 4;
+     }
+     required MessageType type = 1;
+
+     // Set LED Colour Command -------------
+     optional uint32 ledColour = 2 [default = 0];
+     
+     // Set Is Active Command --------------
+     optional bool isActive = 3 [default = false];
+     
+     // Shoot Fire Command -----------------
+     optional FireType fireType = 4 [default = NO_FIRE];
+
+     // Collision Info ---------------------
+     optional sint32 rewardCarId  = 5 [default = -1];
+     optional sint32 punishCarId  = 6 [default = -1];
+     optional bool isFriendlyFire = 7 [default = false];
+}

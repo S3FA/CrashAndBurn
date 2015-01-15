@@ -1,35 +1,19 @@
 #include "car.h"
-#include "protocol_reader.h"
-#include "protocol_writer.h"
+#include "common.h"
+#include "pb_decode.h"
+#include "pb_encode.h"
 
-using namespace crashandburn::protocol;
-
-ProtocolWriter protocolWriter;
-ProtocolReader protocolReader;
-
-// Callback Setup
-OnCarCollision collisionCallback;
-
-namespace crashandburn {
-namespace protocol {
-
-void OnCarCollisionCallback(CarId carId0, CarId carId1) {
-
+bool serialOutputCallback(pb_ostream_t *stream, const uint8_t *buf, size_t count) {
+	return Serial.write(buf, count) == count;
 }
 
-}
-}
+pb_ostream_t pbOutStream = {&serialOutputCallback, NULL, SIZE_MAX, 0};
 
 void setup() {
-  Serial.begin(9600);
-
-  collisionCallback = &OnCarCollisionCallback;
-  protocolReader.setCarCollisionCallback(&collisionCallback);
-
+	Serial.begin(115200);
 }
 
 void loop() {
-  protocolReader.readFromSerial();
-
+	Serial.println("HERE");
 }
 

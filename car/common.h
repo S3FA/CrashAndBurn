@@ -3,6 +3,8 @@
 
 #include <Arduino.h>
 
+#define SIZE_MAX 65535
+
 #define DISALLOW_COPY_AND_ASSIGN(TypeName) \
 TypeName(const TypeName&);   \
 void operator=(const TypeName&)
