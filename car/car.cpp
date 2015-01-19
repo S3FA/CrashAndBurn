@@ -1,19 +1,49 @@
+
 #include "car.h"
 #include "common.h"
-#include "pb_decode.h"
-#include "pb_encode.h"
+#include "pb_arduino_decode.h"
+#include "pb_arduino_encode.h"
 
-bool serialOutputCallback(pb_ostream_t *stream, const uint8_t *buf, size_t count) {
-	return Serial.write(buf, count) == count;
-}
+#include "server_to_car.pb.h"
 
-pb_ostream_t pbOutStream = {&serialOutputCallback, NULL, SIZE_MAX, 0};
+// Protobuf output stream and message objects
+pb_ostream_t pbOutStream;
+// Protobuf input stream and message objects
+pb_istream_t pbInStream;
+ServerMessage incomingMsg;
+
+Stream* serialStream = &Serial;
 
 void setup() {
+	// Setup the output and input serial streams and callbacks
 	Serial.begin(115200);
+	pb_ostream_from_stream(*serialStream, pbOutStream);
+	pb_istream_from_stream(*serialStream, pbInStream);
 }
 
 void loop() {
-	Serial.println("HERE");
+	// Serial read/input operations
+	if (serialStream->available() >= ServerMessage_size &&
+		pb_decode(&pbInStream, ServerMessage_fields, &incomingMsg)) {
+
+		switch (incomingMsg.type) {
+			case ServerMessage_MessageType_STATUS_QUERY:
+				break;
+			case ServerMessage_MessageType_SET_LED_COLOUR_CMD:
+				break;
+			case ServerMessage_MessageType_SET_IS_ACTIVE_CMD:
+				break;
+			case ServerMessage_MessageType_SHOOT_FIRE_CMD:
+				break;
+			case ServerMessage_MessageType_COLLISION_INFO:
+				break;
+			default:
+				// Shouldn't happen.
+				assert(false);
+				break;
+		}
+
+	}
+
 }
 

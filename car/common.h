@@ -2,6 +2,7 @@
 #define CRASH_AND_BURN_PROTOCOL_COMMON_H_
 
 #include <Arduino.h>
+#include <assert.h>
 
 #define SIZE_MAX 65535
 
