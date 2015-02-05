@@ -17,7 +17,7 @@ message CarMessage {
    }
    required MessageType type = 1;
    
-   // Collison Event -------------------
+   // Collision Event -------------------
    optional float accelX = 2 [default = 0];
    optional float accelY = 3 [default = 0];
    optional float accelZ = 4 [default = 0];
@@ -30,14 +30,14 @@ message CarMessage {
    
    // Car Status Info ------------------
    enum TeamType {
-   	INVALID_TEAM = 0;
+   	NO_TEAM = 0;
    	SPARKLE_TEAM = 1;
 	DEATH_TEAM   = 2;
    }
    optional sint32 carId          = 7  [default = -1];
    optional bool isActiveStatus   = 8  [default = false];
    optional bool isFireLiveStatus = 9  [default = false];
-   optional TeamType teamStatus   = 10 [default = INVALID_TEAM];
+   optional TeamType teamStatus   = 10 [default = NO_TEAM];
    optional uint32 ledColour      = 11 [default = 0];
 }
 

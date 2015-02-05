@@ -4,8 +4,9 @@
 // - extern variable definitions
 // In the appropriate section
 
-#ifndef car_H_
-#define car_H_
+#ifndef CRASHANDBURN_CAR_CAR_H_
+#define CRASHANDBURN_CAR_CAR_H_
+
 #include "Arduino.h"
 //add your includes for the project car here
 
@@ -23,7 +24,5 @@ void setup();
 //add your function definitions for the project car here
 
 
-
-
 //Do not add code below this line
-#endif /* car_H_ */
+#endif // CRASHANDBURN_CAR_CAR_H_

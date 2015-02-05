@@ -15,7 +15,7 @@ const bool CarMessage_isFireLive_default = false;
 const int32_t CarMessage_carId_default = -1;
 const bool CarMessage_isActiveStatus_default = false;
 const bool CarMessage_isFireLiveStatus_default = false;
-const CarMessage_TeamType CarMessage_teamStatus_default = CarMessage_TeamType_INVALID_TEAM;
+const CarMessage_TeamType CarMessage_teamStatus_default = CarMessage_TeamType_NO_TEAM;
 const uint32_t CarMessage_ledColour_default = 0u;
 
 

@@ -28,6 +28,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>Adafruit_NeoPixel</name>
+			<type>2</type>
+			<locationURI>carAdafruit_NeoPixel/Adafruit_NeoPixel</locationURI>
+		</link>
+		<link>
 			<name>nanopb</name>
 			<type>2</type>
 			<locationURI>carnanopb/nanopb</locationURI>

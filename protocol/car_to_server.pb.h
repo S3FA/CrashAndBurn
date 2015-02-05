@@ -25,7 +25,7 @@ typedef enum _CarMessage_MessageType {
 } CarMessage_MessageType;
 
 typedef enum _CarMessage_TeamType {
-    CarMessage_TeamType_INVALID_TEAM = 0,
+    CarMessage_TeamType_NO_TEAM = 0,
     CarMessage_TeamType_SPARKLE_TEAM = 1,
     CarMessage_TeamType_DEATH_TEAM = 2
 } CarMessage_TeamType;
@@ -68,7 +68,7 @@ extern const CarMessage_TeamType CarMessage_teamStatus_default;
 extern const uint32_t CarMessage_ledColour_default;
 
 /* Initializer values for message structs */
-#define CarMessage_init_default                  {(CarMessage_MessageType)0, false, 0, false, 0, false, 0, false, FireType_NO_FIRE, false, false, false, -1, false, false, false, false, false, CarMessage_TeamType_INVALID_TEAM, false, 0u}
+#define CarMessage_init_default                  {(CarMessage_MessageType)0, false, 0, false, 0, false, 0, false, FireType_NO_FIRE, false, false, false, -1, false, false, false, false, false, CarMessage_TeamType_NO_TEAM, false, 0u}
 #define CarMessage_init_zero                     {(CarMessage_MessageType)0, false, 0, false, 0, false, 0, false, (FireType)0, false, 0, false, 0, false, 0, false, 0, false, (CarMessage_TeamType)0, false, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
