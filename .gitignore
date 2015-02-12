@@ -3,3 +3,5 @@ RemoteSystemsTempFiles
 Arduino_Uno
 car/Release
 car/Debug
+.DS_Store
+.classpath
