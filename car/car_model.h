@@ -6,7 +6,6 @@
 
 #define UNINITIALIZED_CAR_ID -1
 
-
 class CarModel {
 public:
 	CarModel();

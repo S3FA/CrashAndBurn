@@ -1,9 +1,0 @@
-// common.proto
-
-
- enum FireType {
-   	SMALL_BURST  = 0;
-	MEDIUM_BURST = 1;
-	LARGE_BURST  = 2;
- }
-  

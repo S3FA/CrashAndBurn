@@ -14,6 +14,8 @@ message CarMessage {
 	TIPPING_OVER_EVENT  = 2;
 	LOCAL_DEADMAN_EVENT = 3;
 	CAR_STATUS_INFO     = 4;
+	//CAR_DAMAGED_EVENT
+	//
    }
    required MessageType type = 1;
    
@@ -30,7 +32,7 @@ message CarMessage {
    
    // Car Status Info ------------------
    enum TeamType {
-   	NO_TEAM = 0;
+   	NO_TEAM      = 0;
    	SPARKLE_TEAM = 1;
 	DEATH_TEAM   = 2;
    }

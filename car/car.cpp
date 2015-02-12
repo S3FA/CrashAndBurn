@@ -7,7 +7,6 @@
 #include "server_to_car.pb.h"
 #include "car_to_server.pb.h"
 
-
 // Protobuf output stream and message objects
 pb_ostream_t pbOutStream;
 // Protobuf input stream and message objects
@@ -90,21 +89,25 @@ void shootFire(const ServerMessage& fireMsg) {
 
 	// TODO: Shoot the fire HERE
 	switch (fireMsg.fireType) {
+
 		case FireType_NO_FIRE:
 			// Do nothing
-			break;
+			return;
+
 		case FireType_SMALL_BURST:
 			break;
 		case FireType_MEDIUM_BURST:
 			break;
 		case FireType_LARGE_BURST:
 			break;
+
 		default:
-			break;
+			assert(false);
+			return;
 	}
 
-	// TODO: Fire was officially shot, tell the server about it
-
+	// Fire was officially shot, tell the server about it
+	sendFireShotMsg(fireMsg.fireType);
 }
 
 void collisionVerified(const ServerMessage& collisionMsg) {
@@ -121,8 +124,8 @@ void collisionVerified(const ServerMessage& collisionMsg) {
     //optional sint32 punishCarId;
 	//optional bool isFriendlyFire;
 
-	// Only apply punishment if this car is the punishable car and
-	// it wasn't friendly fire
+	// Currently we only apply punishment if this car is the punishable car
+	// and it wasn't friendly fire
 	if (collisionMsg.punishCarId == carModel.getCarId() && !collisionMsg.isFriendlyFire) {
 		carModel.applyDamage();
 	}

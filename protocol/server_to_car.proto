@@ -9,7 +9,7 @@ import "common.proto";
 
 message ServerMessage {
      enum MessageType {
-     	  STATUS_QUERY       = 0;
+      STATUS_QUERY       = 0;
 	  SET_LED_COLOUR_CMD = 1; 
 	  SET_IS_ACTIVE_CMD  = 2;
 	  SHOOT_FIRE_CMD     = 3;

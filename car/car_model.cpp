@@ -30,6 +30,7 @@ CarModel::~CarModel() {
 
 void CarModel::setIsActive(bool isActive) {
 	// TODO: Something interesting goes here!
+	this->isActive = isActive;
 }
 
 void CarModel::setAllLedColours(uint32_t rgb) {
@@ -47,6 +48,7 @@ void CarModel::applyDamage() {
 	if (this->lifePoints <= 0) {
 		this->lifePoints = 0;
 		// TODO: Death of the car!
+		//this->setIsActive(false);
 	}
 }
 
