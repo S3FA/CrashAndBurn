@@ -24,7 +24,7 @@
 
 `LocalDeadmanEvent(isFireOn)`
  > Occurs when a car enables or disables its safety switch (e.g., pressure sensor in the seat).
-    * `isFireOn` true if fire is live, false if not.
+ * `isFireOn` true if fire is live, false if not.
 
 `CarStatusInfo(carId, isActive, isFireLive, colour, isTippingOver, team)`
  > Status update from the car, holds all the basic information pertaining to the car, used by the server for syncing information in the GUI (or other such things).
