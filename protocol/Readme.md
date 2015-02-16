@@ -1,14 +1,12 @@
+# Message Naming Conventions
 
-Message Naming Conventions
---------------------------
-*Query: A message sent for the sake of getting a message back. Queries contain no information, they are simply a prompt for information from whoever the query was sent to.
-*Info: Replies to queries and general information messages — not used to direct specific behaviour but simply used to inform (which may or may not result in action).
-*Event: An event that occurred on the sender, the message exists to inform others that it occurred.
-*Cmd: A command, sent from the party demanding an action be taken by the receiving party.
+* Query: A message sent for the sake of getting a message back. Queries contain no information, they are simply a prompt for information from whoever the query was sent to.
+* Info: Replies to queries and general information messages — not used to direct specific behaviour but simply used to inform (which may or may not result in action).
+* Event: An event that occurred on the sender, the message exists to inform others that it occurred.
+* Cmd: A command, sent from the party demanding an action be taken by the receiving party.
 
 
-Car to Server
--------------
+# Car to Server
 
 * CarCollisionEvent(accX, accY, accZ) - Occurs when a car detects that it has collided with another car.
 accX, accY, accZ: The normalized acceleration vector in x, y, and z
@@ -31,8 +29,8 @@ isTippingOver: Whether the car is detected to be tipping over or not.
 team: An enumeration describing the team of the car (relevant in teamplay matches)
 
 
-Server to Car
--------------
+# Server to Car
+
 * StatusQuery() - Used to ask a car to reply with its status
 * SetLEDColourCmd(colour) - Tell a car to set all its LEDs to the specified colour.
 * SetIsActiveCmd(isActive) - Tell a car to activate or deactivate.
@@ -41,15 +39,16 @@ Server to Car
 * CarCollisionInfo(rewardCarId, punishCarId, isFriendlyFire) - Inform cars of a collision between two cars, who instigated it and who didn’t and whether it was a “friendly” collision. NOTE: This might not be necessary if cars just passively receive instruction/commands from the server.
 
 
-How to use Protobuf
--------------------
+# How to use Protobuf
+
 Step 1: Create a .proto file defining your messages.
 
 Step 2: Build a .pb file
-user@host:~$ protoc -omessage.pb message.proto
+```bash
+protoc -omessage.pb message.proto
+```
 
 Step 3: Run the .pb file through the nanopb generator script
-user@host:~$ python nanopb/generator/nanopb_generator.py message.pb
-
-OR
-
+```bash
+python nanopb/generator/nanopb_generator.py message.pb
+```
