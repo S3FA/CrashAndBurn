@@ -27,24 +27,8 @@ Overall, the Bumper Car Controller is a slave to the Server Coordinator. Any non
 
 Communications Protocol
 ---------------------
-* Events
- * OnCollision(forceVec) -- car => server
- * OnCollision(car1_id, car2_id) -- server => cars  *NOTE: This may not be necessary since the server can just send a render frame to tell the relevant cars to react in a (GUI programmable?) way
- * OnFire(fire_type) -- car => server
- * OnTippingOver(gyroVec) -- car => server
- * OnButtonPress(button_type) -- car => server (if there are other buttons available to car operators)
-* Commands (always sent from server to one or more bumper cars):
- * Frame rendering for full refresh of an LED screen
- * Frame rendering for LED rendering routines (e.g., nyan cat)
- * Set default player colour
- * Activate/Deactivate (for safety purposes and in case someone tries to drive off with one of our cars)
- * Shoot Fire (various types e.g., sm/md/lg burst, rapid fire)
-* Query and Response
- * RequestState -- server => car
- * StateInfo(is_activated, default_colour, ...) -- car => server
- * Discovery and Response
- * Discover(server_endpoint_info) -- server => *broadcast*
- * HereIAm(car_endpoint_info) -- car => server
+
+See full details in the [protocol folder](https://github.com/S3FA/CrashAndBurn/tree/master/protocol).
 
 The protocol is a specification for the functionality that will be present in both the Bumper Car Controllers and the Server Coordinator. I think all communications should be done over TCP/IP to start off. If we find responsiveness to be an issue for certain commands (and guaranteed arrival is not an issue) we can move those over to UDP as we see fit. Protocol will be implemented as basic ASCII over serial. Each package will have a starting identifier character, a command identifying character, and some easy-to-read parsable tuple of relevant parameters.
 

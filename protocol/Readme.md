@@ -9,7 +9,7 @@
 # Car to Server
 
 #### `CarCollisionEvent(accX, accY, accZ)`
-Occurs when a car detects that it has collided with another car.
+Occurs when a car detects that it has collided with something. If this is a collision between two or more cars then the server will get an event from each car.
  * `accX, accY, accZ` are the normalized acceleration vector in x, y, and z.
 
 #### `FireShotEvent(location, fireType)`
@@ -33,6 +33,9 @@ Status update from the car, holds all the basic information pertaining to the ca
  * `isTippingOver` Whether the car is detected to be tipping over or not.
  * `team` An enumeration describing the team of the car (relevant in teamplay matches)
 
+### Still to consider
+ * `ButtonPressEvent(buttonId)` Occurs when a button on the car is pressed (if there are other buttons available to car operators)
+
 
 # Server to Car
 
@@ -50,6 +53,13 @@ Tell a car to shoot fire.
 
 #### `CarCollisionInfo(rewardCarId, punishCarId, isFriendlyFire)`
 Inform cars of a collision between two cars, who instigated it and who didn’t and whether it was a “friendly” collision. NOTE: This might not be necessary if cars just passively receive instruction/commands from the server.
+
+### Still to consider
+ * Frame rendering for full refresh of an LED screen
+ * Frame rendering for LED rendering routines (e.g., nyan cat)
+ * Set default player colour
+ * Activate/Deactivate (for safety purposes and in case someone tries to drive off with one of our cars)
+ * Discovery and Response
 
 
 # How to use Protobuf
