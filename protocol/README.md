@@ -50,11 +50,11 @@
 `SetIsActiveCmd(isActive)`
 > Tell a car to activate or deactivate.
 
-> `ShootFireCmd(location, fireType)`
-Tell a car to shoot fire.
+`ShootFireCmd(location, fireType)`
+ > Tell a car to shoot fire.
 
-> `CarCollisionInfo(rewardCarId, punishCarId, isFriendlyFire)`
-Inform cars of a collision between two cars, who instigated it and who didn’t and whether it was a “friendly” collision. NOTE: This might not be necessary if cars just passively receive instruction/commands from the server.
+`CarCollisionInfo(rewardCarId, punishCarId, isFriendlyFire)`
+ > Inform cars of a collision between two cars, who instigated it and who didn’t and whether it was a “friendly” collision. NOTE: This might not be necessary if cars just passively receive instruction/commands from the server.
 
 ### Still to consider
  * Discovery and Response
