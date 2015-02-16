@@ -1,5 +1,8 @@
 # Crash+Burn Communications Protocol
 
+The protocol is implemented in [protobuf](https://code.google.com/p/protobuf/) (using [nanopb](https://code.google.com/p/nanopb/) on the embedded side.)
+
+
 ## Message Naming Conventions
 
 * `Query`: A message sent for the sake of getting a message back. Queries contain no information, they are simply a prompt for information from whoever the query was sent to.

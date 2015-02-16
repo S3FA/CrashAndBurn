@@ -28,9 +28,9 @@ Overall, the Bumper Car Controller is a slave to the Server Coordinator. Any non
 Communications Protocol
 ---------------------
 
-See full details in the [protocol folder](https://github.com/S3FA/CrashAndBurn/tree/master/protocol).
+The protocol is a specification for the functionality that will be present in both the Bumper Car Controllers and the Server Coordinator.
 
-The protocol is a specification for the functionality that will be present in both the Bumper Car Controllers and the Server Coordinator. I think all communications should be done over TCP/IP to start off. If we find responsiveness to be an issue for certain commands (and guaranteed arrival is not an issue) we can move those over to UDP as we see fit. Protocol will be implemented as basic ASCII over serial. Each package will have a starting identifier character, a command identifying character, and some easy-to-read parsable tuple of relevant parameters.
+See details in the [protocol folder](https://github.com/S3FA/CrashAndBurn/tree/master/protocol).
 
 Server Coordinator
 ------------------
