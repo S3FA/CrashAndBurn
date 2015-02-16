@@ -1,7 +1,7 @@
-CrashAndBurn
+Crash+Burn
 ============
 
-Full source code for Charcade's "Crash + Burn" (fire spewing bumper cars).
+Full source code for Charnival's fire spewing bumper cars aptly named Crash+Burn.
 
 This project will have the following, distinct, design components:
 
