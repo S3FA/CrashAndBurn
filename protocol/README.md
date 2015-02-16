@@ -57,10 +57,6 @@ Tell a car to shoot fire.
 Inform cars of a collision between two cars, who instigated it and who didn’t and whether it was a “friendly” collision. NOTE: This might not be necessary if cars just passively receive instruction/commands from the server.
 
 ### Still to consider
- * Frame rendering for full refresh of an LED screen
- * Frame rendering for LED rendering routines (e.g., nyan cat)
- * Set default player colour
- * Activate/Deactivate (for safety purposes and in case someone tries to drive off with one of our cars)
  * Discovery and Response
 
 
