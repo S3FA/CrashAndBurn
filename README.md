@@ -1,5 +1,4 @@
-Crash+Burn
-============
+# Crash+Burn
 
 Full source code for Charnival's fire spewing bumper cars aptly named Crash+Burn.
 
@@ -12,8 +11,8 @@ This project will have the following, distinct, design components:
 
 Here are the basic responsibilities I envision for each of these components:
 
-Bumper Car Controller
----------------------
+## Bumper Car Controller
+
 * Reads the Inertial Measurement Unit (IMU) / Sensor data, performs filtering, reacts to state changes appropriately
 * Reads misc. not-yet-specified sensors (buttons?) on the car and reacts to their state changes appropriately
 * Reads and reacts to incoming serial data from the Server Coordinator, data adheres to the Communications Protocol
@@ -25,15 +24,13 @@ Bumper Car Controller
 
 Overall, the Bumper Car Controller is a slave to the Server Coordinator. Any non-slavey-type-stuff that it does stays local (i.e., a bumper car never tells the server what to do).
 
-Communications Protocol
----------------------
+##Communications Protocol
 
 The protocol is a specification for the functionality that will be present in both the Bumper Car Controllers and the Server Coordinator.
 
 See details in the [protocol folder](https://github.com/S3FA/CrashAndBurn/tree/master/protocol).
 
-Server Coordinator
-------------------
+## Server Coordinator
 
 * Discovers and assigns identification Bumper Car Controllers (other option is to hardcode this, as mentioned above)
 * Tracks addresses/endpoints and sessions for bumper car communications
@@ -44,8 +41,7 @@ Server Coordinator
 
 Overall, the Server Coordinator acts as a layer between the network and the Server GUI, providing the interface and logic responsible for communicating with and coordinating the Bumper Car Controllers.
 
-Server GUI
-----------
+## Server GUI
 
 * Updates its visual state based off the state of the Server Coordinator
 * Control panel featuring the display and control widgets for all discovered bumper cars and their respective states
