@@ -8,20 +8,20 @@ import "common.proto";
 // special code that I don't want to write! Floats only please.
 
 message ServerMessage {
-     enum MessageType {
-      STATUS_QUERY       = 0;
-	  SET_LED_COLOUR_CMD = 1; 
-	  SET_IS_ACTIVE_CMD  = 2;
-	  SHOOT_FIRE_CMD     = 3;
-     }
-     required MessageType type = 1;
+   enum MessageType {
+       STATUS_QUERY       = 0;
+       SET_LED_COLOUR_CMD = 1; 
+       SET_IS_ACTIVE_CMD  = 2;
+       SHOOT_FIRE_CMD     = 3;
+   }
+   required MessageType type = 1;
 
-     // Set LED Colour Command -------------
-     optional uint32 ledColour = 2 [default = 0];
-     
-     // Set Is Active Command --------------
-     optional bool isActive = 3 [default = false];
-     
-     // Shoot Fire Command -----------------
-     optional FireType fireType = 4 [default = NO_FIRE];
+   // Set LED Colour Command -------------
+   optional uint32 ledColour = 2 [default = 0];
+
+   // Set Is Active Command --------------
+   optional bool isActive = 3 [default = false];
+
+   // Shoot Fire Command -----------------
+   optional FireType fireType = 4 [default = NO_FIRE];
 }

@@ -9,14 +9,14 @@ import "common.proto";
 
 message CarMessage {
    enum MessageType {
-   	COLLISION_EVENT     = 0;
-	FIRE_SHOT_EVENT     = 1;
-	TIPPING_OVER_EVENT  = 2;
-	LOCAL_DEADMAN_EVENT = 3;
-	CAR_STATUS_INFO     = 4;
+   	  COLLISION_EVENT     = 0;
+      FIRE_SHOT_EVENT     = 1;
+      TIPPING_OVER_EVENT  = 2;
+      LOCAL_DEADMAN_EVENT = 3;
+      CAR_STATUS_INFO     = 4;
    }
    required MessageType type = 1;
-   
+
    // Collision Event -------------------
    optional float accelX = 2 [default = 0];
    optional float accelY = 3 [default = 0];
@@ -27,11 +27,10 @@ message CarMessage {
 
    // Local Deadman Event --------------
    optional bool isFireLive = 6 [default = false];
-   
+
    // Car Status Info ------------------
    optional sint32 carId          = 7  [default = -1];
    optional bool isActiveStatus   = 8  [default = false];
    optional bool isFireLiveStatus = 9  [default = false];
    optional uint32 ledColour      = 10 [default = 0];
 }
-
