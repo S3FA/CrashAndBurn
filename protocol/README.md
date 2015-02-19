@@ -29,14 +29,13 @@ The protocol is implemented in [protobuf](https://code.google.com/p/protobuf/) (
  > Occurs when a car enables or disables its safety switch (e.g., pressure sensor in the seat).
  * `isFireOn` true if fire is live, false if not.
 
-`CarStatusInfo(carId, isActive, isFireLive, colour, isTippingOver, team)`
+`CarStatusInfo(carId, isActive, isFireLive, colour, isTippingOver)`
  > Status update from the car, holds all the basic information pertaining to the car, used by the server for syncing information in the GUI (or other such things).
  * `carId` The unique identifier of the car
  * `isActive` The car is active, it can be driven and if the local deadman is enabling fire, fire is also on.
  * `isFireLive` If the local deadman is enabling fire this will be true, otherwise false. It doesn’t necessarily mean fire is completely active through, the car must still be active for fire to be shot.
  * `colour` The colour value of the car’s LEDs
  * `isTippingOver` Whether the car is detected to be tipping over or not.
- * `team` An enumeration describing the team of the car (relevant in teamplay matches)
 
 ### Still to consider
  * `ButtonPressEvent(buttonId)` Occurs when a button on the car is pressed (if there are other buttons available to car operators)
