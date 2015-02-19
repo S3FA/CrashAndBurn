@@ -14,8 +14,6 @@ message CarMessage {
 	TIPPING_OVER_EVENT  = 2;
 	LOCAL_DEADMAN_EVENT = 3;
 	CAR_STATUS_INFO     = 4;
-	//CAR_DAMAGED_EVENT
-	//
    }
    required MessageType type = 1;
    
@@ -31,15 +29,9 @@ message CarMessage {
    optional bool isFireLive = 6 [default = false];
    
    // Car Status Info ------------------
-   enum TeamType {
-   	NO_TEAM      = 0;
-   	SPARKLE_TEAM = 1;
-	DEATH_TEAM   = 2;
-   }
    optional sint32 carId          = 7  [default = -1];
    optional bool isActiveStatus   = 8  [default = false];
    optional bool isFireLiveStatus = 9  [default = false];
-   optional TeamType teamStatus   = 10 [default = NO_TEAM];
-   optional uint32 ledColour      = 11 [default = 0];
+   optional uint32 ledColour      = 10 [default = 0];
 }
 

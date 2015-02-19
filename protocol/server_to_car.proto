@@ -13,7 +13,6 @@ message ServerMessage {
 	  SET_LED_COLOUR_CMD = 1; 
 	  SET_IS_ACTIVE_CMD  = 2;
 	  SHOOT_FIRE_CMD     = 3;
-	  COLLISION_INFO     = 4;
      }
      required MessageType type = 1;
 
@@ -25,9 +24,4 @@ message ServerMessage {
      
      // Shoot Fire Command -----------------
      optional FireType fireType = 4 [default = NO_FIRE];
-
-     // Collision Info ---------------------
-     optional sint32 rewardCarId  = 5 [default = -1];
-     optional sint32 punishCarId  = 6 [default = -1];
-     optional bool isFriendlyFire = 7 [default = false];
 }

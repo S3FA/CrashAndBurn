@@ -14,23 +14,16 @@ public:
 	int32_t getCarId() const { return this->carId; }
 	bool getIsActive() const { return this->isActive; }
 	bool getIsFireLive() const { return this->isFireLive; }
-	CarMessage_TeamType getTeam() const { return this->team; }
 	uint32_t getLedColour() const { return this->ledStrip.getPixelColor(0); }
 
 	void setIsActive(bool isActive);
 	void setAllLedColours(uint32_t rgb);
 
-	void applyDamage();
-
 private:
 	int32_t carId;
 	bool isActive;
 	bool isFireLive;
-	CarMessage_TeamType team;
 	Adafruit_NeoPixel ledStrip;
-
-	float lifePoints; // 0 to 100 life, 0 means the car is dead
-
 };
 
 #endif // CRASHANDBURN_CAR_CAR_MODEL_H_
