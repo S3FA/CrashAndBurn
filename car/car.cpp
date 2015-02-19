@@ -34,14 +34,12 @@ bool sendInfoMsg() {
 	outgoingMsg.has_carId = true;
 	outgoingMsg.has_isActiveStatus = true;
 	outgoingMsg.has_isFireLiveStatus = true;
-	outgoingMsg.has_teamStatus = true;
 	outgoingMsg.has_ledColour = true;
 
 	// We assume that the following variables have been initialized to the correct state
 	outgoingMsg.carId = carModel.getCarId();
 	outgoingMsg.isActiveStatus = carModel.getIsActive();
 	outgoingMsg.isFireLiveStatus = carModel.getIsFireLive();
-	outgoingMsg.teamStatus = carModel.getTeam();
 	outgoingMsg.ledColour = carModel.getLedColour();
 
 	return pb_encode(&pbOutStream, CarMessage_fields, &outgoingMsg);
@@ -110,27 +108,6 @@ void shootFire(const ServerMessage& fireMsg) {
 	sendFireShotMsg(fireMsg.fireType);
 }
 
-void collisionVerified(const ServerMessage& collisionMsg) {
-	if (!collisionMsg.has_punishCarId ||
-		!collisionMsg.has_isFriendlyFire ||
-		collisionMsg.type != ServerMessage_MessageType_COLLISION_INFO) {
-
-		assert(false);
-		return;
-	}
-
-	// TODO: What kind of game logic do we actually want?
-	//optional sint32 rewardCarId;
-    //optional sint32 punishCarId;
-	//optional bool isFriendlyFire;
-
-	// Currently we only apply punishment if this car is the punishable car
-	// and it wasn't friendly fire
-	if (collisionMsg.punishCarId == carModel.getCarId() && !collisionMsg.isFriendlyFire) {
-		carModel.applyDamage();
-	}
-}
-
 void readSerial() {
 
 	// Serial read/input operations
@@ -152,10 +129,6 @@ void readSerial() {
 
 			case ServerMessage_MessageType_SHOOT_FIRE_CMD:
 				shootFire(incomingMsg);
-				break;
-
-			case ServerMessage_MessageType_COLLISION_INFO:
-				collisionVerified(incomingMsg);
 				break;
 
 			default:
