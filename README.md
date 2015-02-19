@@ -14,7 +14,10 @@ Here are the basic responsibilities I envision for each of these components:
 ## Bumper Car Controller
 
 * Reads the Inertial Measurement Unit (IMU) / Sensor data, performs filtering, reacts to state changes appropriately
-* Reads misc. not-yet-specified sensors (buttons?) on the car and reacts to their state changes appropriately
+* Reads sensors (and buttons?) on the car and reacts to their state changes appropriately
+  * Tip sensor
+  * Seat deadman
+  * Acceleration petal
 * Reads and reacts to incoming serial data from the Server Coordinator, data adheres to the Communications Protocol
 * Writes serial data output to the Server Coordinator, data adheres to the Communications Protocol
 * Controls the Flame Effect System (solenoid, spark-gap/ignitor, coordination of gas and ignition)
