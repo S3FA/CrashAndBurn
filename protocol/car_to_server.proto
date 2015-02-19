@@ -9,7 +9,7 @@ import "common.proto";
 
 message CarMessage {
    enum MessageType {
-   	  COLLISION_EVENT     = 0;
+      COLLISION_EVENT     = 0;
       FIRE_SHOT_EVENT     = 1;
       TIPPING_OVER_EVENT  = 2;
       LOCAL_DEADMAN_EVENT = 3;
